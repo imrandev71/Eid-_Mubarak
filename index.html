@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eid Mubarak</title>
+    <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b12f3bb8e56ee0011c8004a&product=inline-share-buttons' async='async'></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resourses/css/style-index.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="enter-name-section">
+        <div class="sec-enter-name-container">
+            <p class="sec-enter-name-label">
+                তোমার নামে লিখ
+            </p>
+            <input type="text" class="sec-enter-name-input" id="sec-enter-name-input">
+            <p class="sec-enter-name-btn" onclick="test()">
+                see magic!
+            </p>
+        </div>
+    </section>
+    <div class="container" id="particles-js">
+        <div class="happy-eid-container">
+            <ul class="happy-eid-text">
+                <li>H</li>
+                <li>A</li>
+                <li>P</li>
+                <li>P</li>
+                <li>Y</li>
+                <li> </li>
+                <li>E</li>
+                <li>I</li>
+                <li>D</li>
+            </ul>
+        </div>
+        <div class="container-2">
+            <p class="wish-text">❤️❤️তাক্বাব্বালাল্লাহু মিন্না ওয়া মিনকুম।❤️❤️</p>
+            <h1 id="user-name-h1"></h1>
+            <p class="eid-wish-para">ঈদের মত আনন্দময় হোক প্রতিটি দিন। <br> সুন্দর হোক তোমার জীবন, <br> পূরণ হোক মনের সব চাওয়া পাওয়া। <br> 🌙ঈদ মোবারক🌙 <br>
+
+
+        </div>
+        <!-- <div class="sharethis-inline-share-buttons share-btn"></div> -->
+        <a data-text="HELLO, I HAVE A SPECIAL GIFT FOR YOU, *open this, enter your name, and see MAGIC!* , and don't forget I am the first one doing this" data-link="http://zubster.000webhostapp.com" class="whatsapp w3_whatsapp_btn w3_whatsapp_btn_large">Share on whatsaap</a>
+        <a target="_blank" class="dev-btn" href="#">বন্ধুদের মাঝে শেয়ার করুন </a>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/particles.js@2.0.0,npm/particles.js@2.0.0/demo/js/app.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/app.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let userName;
+            let userNameH1;
+            $(".sec-enter-name-btn").click(function() {
+                if (document.getElementById("sec-enter-name-input").value === "") {
+                    alert("name cannot be empty");
+                } else {
+                    $(".enter-name-section").fadeOut("slow");
+                    userName = document.getElementById("sec-enter-name-input").value;
+                    userNameH1 = document.getElementById("user-name-h1");
+                    userNameH1.innerHTML = userName;
+                }
+            });
+            console.log(userName);
+            // let dataText = "HELLO, *" + userName + "* HAVE SEND A SPECIAL GIFT FOR YOU, *open this, enter your name, and see magic!* and don't forget *" + userName + "* is the first one doing this-->";
+            // $(".whatsapp").attr("data-text") = dataText;
+
+            /* --whatsapp share-*/
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i);
+                },
+                any: function() {
+                    return (
+                        isMobile.Android() ||
+                        isMobile.BlackBerry() ||
+                        isMobile.iOS() ||
+                        isMobile.Opera() ||
+                        isMobile.Windows()
+                    );
+                }
+            };
+            $(document).on("click", ".whatsapp", function() {
+                if (isMobile.any()) {
+                    var text =
+                        "HELLO, *" +
+                        userName +
+                        "* HAVE SEND A SPECIAL GIFT FOR YOU, *open this, enter your name, and see magic!* and don't forget *" +
+                        userName +
+                        "* is the first one doing this-->";
+                    var url = $(this).attr("data-link");
+                    var message = encodeURIComponent(text) + " - " + encodeURIComponent(url);
+                    var whatsapp_url = "whatsapp://send?text=" + message;
+                    window.location.href = whatsapp_url;
+                } else {
+                    alert("Please share this article in mobile device");
+                }
+            });
+        });
+
+        // function test(){
+        //     var userName = document.getElementById("sec-enter-name-input").value;
+        //     console.log(userName);
+        // }
+    </script>
+</body>
+
+</html>
